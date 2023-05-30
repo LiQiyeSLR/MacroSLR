@@ -9,3 +9,10 @@ copy executable in x64\Release and put it in parent folder.
 USE GIT CLONE https to import project not zip. 
 add platform-tools(only the folder) absolute path to windows PATH (environment variables)
 to use git commands install cmder (full edition)
+
+BLUESTACKS CONFIG:
+1920*1080
+320dpi
+enable adb in advanced settings
+
+To launch program just click on executable
