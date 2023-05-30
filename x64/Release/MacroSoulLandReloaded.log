@@ -1,0 +1,35 @@
+﻿  fadb.cpp
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\fadb.cpp(44,52): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+  fopencv.cpp
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\fopencv.cpp(25,11): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+  main.cpp
+  ocr.cpp
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\ocr.cpp(13,56): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+  SLRD.cpp
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(173,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(182,41): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(182,28): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(186,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(213,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(269,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(324,15): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(344,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(374,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(417,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(448,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(465,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(513,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(536,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(562,64): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(571,64): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(581,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(595,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(617,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(628,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(666,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(693,16): warning C4101: 'e' : variable locale non référencée
+  Génération de code en cours
+  Previous IPDB not found, fall back to full compilation.
+  All 581 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Fin de la génération du code
+  MacroSoulLandReloaded.vcxproj -> C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\x64\Release\MacroSoulLandReloaded.exe
