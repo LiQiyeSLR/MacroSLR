@@ -1,0 +1,54 @@
+﻿  fadb.cpp
+  fopencv.cpp
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\fopencv.cpp(25,11): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+  main.cpp
+  ocr.cpp
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\ocr.cpp(14,55): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+  SLRD.cpp
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(177,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(188,41): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(188,28): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(192,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(215,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(242,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(272,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(311,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(341,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(357,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(377,36): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(377,24): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(385,37): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(385,24): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(393,37): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(393,24): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(403,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(426,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(443,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(444,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(446,56): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(448,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(449,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(451,56): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(453,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(454,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(456,56): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(458,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(459,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(461,56): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(463,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(464,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(466,56): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(468,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(469,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(472,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(473,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(476,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(477,32): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(487,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(501,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(523,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(534,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(566,16): warning C4101: 'e' : variable locale non référencée
+C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\src\SLRD.cpp(593,16): warning C4101: 'e' : variable locale non référencée
+  Génération de code en cours...
+  MacroSoulLandReloaded.vcxproj -> C:\Users\etulyon1\Documents\L2POLYTECH\SEMESTRE2\MacroSoulLandReloaded\x64\Debug\MacroSoulLandReloaded.exe
