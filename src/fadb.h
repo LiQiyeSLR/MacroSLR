@@ -13,13 +13,12 @@
 #include "../MSVC/14.35.32215/include/thread"
 #include "../MSVC/14.35.32215/include/stdexcept"
 #include "../MSVC/14.35.32215/include/cstdio"
-
+#include "sysCommands.h"
 
 
 class fadb
 {
   public:
-
 	  fadb();
 	  ~fadb();
 	std::string runADB(const std::string& command);
@@ -31,6 +30,7 @@ class fadb
 	void quit(std::string namepckg);
 	void home();
 	void back();
+	void screenshotBusy();
 	void screenshotEvents();
 	void screenshot();
 	bool connect();
@@ -42,7 +42,7 @@ class fadb
 	void removeAllFiles(std::string dir_path);
 	void wait(int time);
    private:
-	
+	   sysCommands sys;
 };
 #endif
 

@@ -9,7 +9,7 @@ fadb::~fadb() {
 }
 
 void fadb::input(string input) {
-    runADB("input " + input);
+    runADB(sys.concatcmd("input ",input));
 }
 void fadb::touch(int x, int y) {
     string x_str = to_string(x);
@@ -29,7 +29,8 @@ void fadb::swipe(int x1, int y1, int x2, int y2, int delay) {
 std::string fadb::runADB(const std::string& command)
 {
     std::string adb = "adb shell ";
-    std::string fullCommand = adb + command;
+    
+    std::string fullCommand = sys.concatcmd(adb,command);
 
     std::array<char, 128> buffer;
     std::string result;
@@ -105,6 +106,14 @@ void fadb::screenshotEvents() {
     //removeAllFiles("./img");
     string command = "screencap -p ./sdcard/screenshotEvents.png";
     string commandPull = "adb pull /sdcard/screenshotEvents.png ./img";
+    runADB(command);
+    system(commandPull.c_str());
+
+}
+void fadb::screenshotBusy() {
+    //removeAllFiles("./img");
+    string command = "screencap -p ./sdcard/screenshotBusy.png";
+    string commandPull = "adb pull /sdcard/screenshotBusy.png ./img";
     runADB(command);
     system(commandPull.c_str());
 

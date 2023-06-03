@@ -85,7 +85,7 @@ bool fopencv::findImage(std::string tempimg,std::string backgroundimage, int&x, 
     cv::Mat templateImg = cv::imread(tempimg, cv::IMREAD_COLOR);
 
     cv::Mat background = cv::imread(backgroundimage, cv::IMREAD_COLOR);
-    double precision = 0.9;
+    double precision = 1;
     double minVal, maxVal;
     cv::Point minLoc, maxLoc;
     while (true) {
@@ -103,8 +103,8 @@ bool fopencv::findImage(std::string tempimg,std::string backgroundimage, int&x, 
             std::cout << "found maxVal: "<<maxVal<<" " << tempimg << std::endl;
             return true;
         }
-        precision -= 0.08;
-        if (precision < 0.66) {
+        precision -= 0.10;
+        if (precision < 0.7) {
             std::cout << "not found maxVal: "<<maxVal<<" " << tempimg << std::endl;;
             return false;
         }

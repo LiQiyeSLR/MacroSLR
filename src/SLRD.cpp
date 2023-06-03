@@ -1,9 +1,9 @@
 #include "SLRD.h"
 
 SLRD::SLRD(int SizeX,int SizeY) {
-    C.x = C.y =eventy=eventx= 0;
+    C.x = C.y =Cevent.y=Cevent.x=Cbusy.x=Cbusy.y=0;
     MAIL = FRIENDS = HELL= ICEFIRE= BAG= HERB= RACE= THEATER= MYSTERY= XIAOWU= TRIAL = TASKS= TREANT= ABYSS= ENERGY = PAGODA = TYRANT= ELEMENT= TOURNAMENT = false;
-    MAIL = FRIENDS = HELL = ICEFIRE = BAG = HERB = THEATER = MYSTERY = XIAOWU=TREANT=ELEMENT =true;
+    MAIL = FRIENDS = HELL = ICEFIRE = BAG = HERB = RACE = THEATER = MYSTERY = XIAOWU = TASKS = TREANT = ELEMENT =true;
     dimX = SizeX;
     dimY = SizeY;
     endmacro = false;
@@ -31,7 +31,7 @@ void SLRD::macroLoop() {
         switch (restartMacro) {
         case true:
             startSLRD();
-          //  restartMacro = false;
+            //restartMacro = false;
             break;
         case false:
             if (HELL) {
@@ -90,7 +90,8 @@ void SLRD::macroLoop() {
                 break;
             }
             if (TOURNAMENT) {
-
+                doTournament();
+                TOURNAMENT = false;
                 break;
             }
 
@@ -110,19 +111,23 @@ void SLRD::macroLoop() {
                 break;
             }
             if (TYRANT) {
-
+                doTyrant();
+                TYRANT = false;
                 break;
             }
             if (ELEMENT) {
                 doElement();
+                ELEMENT = false;
                 break;
             }
             if (TREANT) {
                 doTreant();
+                TREANT = false;
                 break;
             }
             if (TRIAL) {
                 doTrial();
+                TRIAL = false;
                 break;
             }
         } 
@@ -385,8 +390,8 @@ void SLRD::doHerb() {
         while (findclick(pot));
         while (!findclick(potchoose));
         while (findclick(potchoose));
-        adb.wait(2000);
-        while (findclick(claimall)) {
+        adb.wait(5000);
+        while (findclick(claimallpot)) {
             while (!findclick(congrats));
             while (!findclick(croixmenu));
         }
@@ -474,16 +479,13 @@ void SLRD::doTheater() {
         while (!findclick(theaterchoose));
         while (findclick(theaterchoose));
         for (int i = 0; i < 10; i++) {
-            while (!find(canwatch));
             while (!findclick(watchtheater));
-            while (!find(adwatched));//see for other adwatched in diff languages
-            //while (!findclick(crossad)) {
-            //    if (!findclick(crossad2))break;
-            //}
+            while (findclick(watchtheater));
+            while (!sys.StringInLogcat("ads_play_complete"));
             adb.back();
             adb.wait(2000);
         }
-       /* adb.wait(1000);
+        adb.wait(1000);
         adb.touch(dimX * 0.36, dimY*0.351);
         adb.wait(1000);
         findclick(max);
@@ -506,7 +508,7 @@ void SLRD::doTheater() {
         adb.wait(1000);
         findclick(confirmpurchase);
         adb.wait(1000);
-        findclick(congrats);*/
+        findclick(congrats);
         THEATER = false;
         goHome();
     }
@@ -514,6 +516,7 @@ void SLRD::doTheater() {
         return;
     }
 }
+
 void SLRD::doTrial() {
     try {
         goHome();
@@ -671,9 +674,12 @@ void SLRD::getBag() {
     try {
         goHome();
         int nbdiamondbag = 0;
-        swipemiddlemenu();
-        while (!findclick(sect));
+        while (!findclick(sect)) {
+            swipemiddlemenu();
+        }
+        while (findclick(sect));
         while (!findclick(luckybagicon));
+        while (findclick(luckybagicon));
         adb.wait(2000);
         while (findclick(diamondbag)&&nbdiamondbag<8) {
             nbdiamondbag++;
@@ -694,6 +700,92 @@ void SLRD::getBag() {
         return;
     }
 
+}
+void SLRD::doTournament() {
+    try {
+        goHome();
+        while (!findclick(sect)) {
+            swipemiddlemenu();
+        }
+        while (findclick(sect));
+        while (!findclick(tournament));
+        while (findclick(tournament));
+        //add claim rewards
+        while (!findclick(attacktournament));
+        while (findclick(attacktournament));
+        while (!findclick(battle));
+        while (findclick(battle));
+        while (!findclick(startournament));
+        while (findclick(startournament));
+        while (!findclick(confirmendbattle));
+        while (findclick(confirmendbattle));
+        while (!findclick(attacktournament));
+        while (!findclick(sweeptournament));
+        while (findclick(sweeptournament));
+        while (!findclick(sweepagain));
+        while (!findclick(croixmenu));
+        while (findclick(croixmenu));
+        while (!findclick(rewardtournament));
+        while (findclick(rewardtournament));
+        while (!findclick(claimalltreant));
+        TOURNAMENT = false;
+        goHome();
+    }
+    catch (int e) {
+        return;
+    }
+}
+
+void SLRD::doTyrant() {
+    try {
+        goHome();
+        while (!findclick(sect)) {
+            swipemiddlemenu();
+        }
+        while (findclick(sect));
+        while (!findclick(tyrant)) {
+            adb.swipe(9 * dimX / 10, dimY / 2, dimX / 10, dimY / 2, 1000);
+        }
+        while (findclick(tyrant));
+        while (!findclick(claimtask));
+        adb.wait(2000);
+        while (findclick(congrats)||findclick(claimtask));
+        while (!findclick(fighttyrant));
+        while (findclick(fighttyrant));
+        if (getDay() == Monday) {
+            while (!findclick(battle));
+            while (findclick(battle));
+            while (!findclick(fighttingtyrant));
+            while (findclick(fighttingtyrant));
+            while (!findclick(confirmendbattle));
+            while (findclick(confirmendbattle));
+            while (!findclick(fighttyrant));
+            while (findclick(fighttyrant));
+            while (!findclick(sweeptyrant));
+            while (!findclick(confirmxiao));
+            while (findclick(confirmxiao));
+        }
+        else {
+            while (!findclick(sweeptyrant));
+            while (!findclick(confirmxiao));
+            while (findclick(confirmxiao));
+            while (findclick(fighttyrant));
+            while (!findclick(sweeptyrant));
+            while (!findclick(confirmxiao));
+            while (findclick(confirmxiao));
+        }
+        while (!findclick(pointstyrant));
+        while (findclick(pointstyrant));
+        while (!findclick(claimalltyrant));
+        while (!findclick(congrats));
+        while (findclick(congrats));
+        TYRANT = false;
+        goHome();
+
+    }
+    catch (int e) {
+        return;
+    }
 }
 
 int SLRD::getDay() {
@@ -747,10 +839,10 @@ int SLRD::getCy()const {
     return C.y;
 }
 int SLRD::getEventx()const {
-    return eventx;
+    return Cevent.x;
 }
 int SLRD::getEventy()const {
-    return eventy;
+    return Cevent.y;
 }
 void SLRD::setRebootCount(int nb) {
     rebootCount = nb;
@@ -861,8 +953,16 @@ std::vector<Coords>& SLRD::getListCoords() {
 }
 bool SLRD::findclickEvents(std::string imgtemplate) {
     adb.screenshotEvents();
-    if (op.findImage(imgtemplate,imgevents, eventx, eventy)) {
-        adb.touch(eventx, eventy);
+    if (op.findImage(imgtemplate,imgevents, Cevent.x, Cevent.y)) {
+        adb.touch(Cevent.x, Cevent.y);
+        return true;
+    }
+    else return false;
+}
+bool SLRD::findclickBusy(std::string imgtemplate) {
+    adb.screenshotBusy();
+    if (op.findImage(imgtemplate, imgbusy, Cbusy.x, Cbusy.y)) {
+        adb.touch(Cbusy.x, Cbusy.y);
         return true;
     }
     else return false;
@@ -910,7 +1010,7 @@ bool SLRD::find(std::string imgtemplate) {
 }
 bool SLRD::findEvents(std::string imgtemplate) {
     adb.screenshotEvents();
-    if (op.findImage(imgtemplate,imgevents, eventx, eventy)) {
+    if (op.findImage(imgtemplate,imgevents, Cevent.x, Cevent.y)) {
         return true;
     }
     else return false;
@@ -928,53 +1028,9 @@ void SLRD::CurrentFocus() {
 
 }
 
-void SLRD::filterLogcat()
-{
-    std::system("adb logcat | findstr instance:QUI");
-}
 
 
-bool SLRD::stringLogcat(const std::string& searchString)
-{
-    std::string logcatEntry;
-    std::time_t currentTime = std::time(nullptr);
-    std::tm now;
-    std::tm* twoSecondsAgo = nullptr;
 
-    std::time(&currentTime);
-    localtime_s(&now, &currentTime);
-    localtime_s(twoSecondsAgo,&currentTime);
-    twoSecondsAgo->tm_sec -= 2;
-
-    while (std::getline(std::cin, logcatEntry))
-    {
-        std::string timestampStr = logcatEntry.substr(0, logcatEntry.find(' '));
-        std::tm timestamp = {};
-
-        if (sscanf_s(timestampStr.c_str(), "%d-%d-%d", &timestamp.tm_mon, &timestamp.tm_mday, &timestamp.tm_year) == 3)
-        {
-            timestamp.tm_year -= 1900;
-            timestamp.tm_mon -= 1;
-
-            std::string timePart = timestampStr.substr(timestampStr.find(' ') + 1);
-            if (sscanf_s(timePart.c_str(), "%d:%d:%d", &timestamp.tm_hour, &timestamp.tm_min, &timestamp.tm_sec) == 3)
-            {
-                std::time_t timestampTime = std::mktime(&timestamp);
-
-                if (timestampTime >= std::mktime(twoSecondsAgo) && timestampTime <= currentTime)
-                {
-                    if (logcatEntry.find(searchString) != std::string::npos)
-                    {
-                        std::cout << "Match found!" << std::endl;
-                        return true;
-                    }
-                }
-            }
-        }
-    }
-
-    return false;
-}
 
 
 

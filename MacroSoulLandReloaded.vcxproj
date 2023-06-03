@@ -159,12 +159,14 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ocr.cpp" />
     <ClCompile Include="src\SLRD.cpp" />
+    <ClCompile Include="src\sysCommands.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\fadb.h" />
     <ClInclude Include="src\fopencv.h" />
     <ClInclude Include="src\ocr.h" />
     <ClInclude Include="src\SLRD.h" />
+    <ClInclude Include="src\sysCommands.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

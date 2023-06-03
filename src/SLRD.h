@@ -13,10 +13,16 @@
 #include "fopencv.h"
 #include "fadb.h"
 #include "ocr.h"
+#include "sysCommands.h"
 
 enum pos {haut,bas,gauche,droite};
-
-
+#define Monday 1
+#define Tuesday 2
+#define Wednesday 3
+#define Thursday 4
+#define Friday 5
+#define Saturday 6
+#define Sunday 7
 class SLRD
 {
 public:
@@ -40,10 +46,13 @@ public:
 	void doTrial();
 	void doTreant();
 	void doElement();
+	void doTournament();
+	void doTyrant();
 	//Outils
 	bool findclick(std::string imgtemplate, std::string background);
 	bool findclick(std::string imgtemplate);
 	bool findclickEvents(std::string imgtemplate);
+	bool findclickBusy(std::string imgtemplate);
 	bool getArray(std::string imgtemplate);
 	bool find(std::string imgtemplate);
 	bool findEvents(std::string imgtemplate);
@@ -65,7 +74,6 @@ public:
 	int getEventy()const;
 	int getRebootCount();
 	void setRebootCount(int nb);
-	void filterLogcat();
 	int rebootCount;
 	int Order[20];
 	std::vector<Coords>& getListCoords();
@@ -133,6 +141,7 @@ public:
 	std::string twopot = Pot + "twopot.png";
 	std::string protect = Pot + "protect.png";
 	std::string confirmdeliver = Pot + "confirmdeliver.png";
+	std::string claimallpot = Pot + "claimallpot.png";
 		//Race 
 	std::string Race = General + "Race/";
 	std::string claimrace = Race + "claimrace.png";
@@ -170,8 +179,17 @@ public:
 	std::string sweepagain = Tournament + "sweepagain.png";
 	std::string sweeptournament = Tournament + "sweeptournament.png";
 	std::string tournament = Tournament + "tournament.png";
+	std::string rewardtournament = Tournament + "rewardtournament.png";
+	std::string startournament= Tournament + "startournament.png";
+	
 	//Tyrant
 	std::string Tyrant = General + "Sect/Tyrant/";
+	std::string claimalltyrant = Tyrant + "claimalltyrant.png";
+	std::string fighttingtyrant = Tyrant + "fightingtyrant.png";
+	std::string fighttyrant = Tyrant + "fighttyrant.png";
+	std::string pointstyrant = Tyrant + "pointstyrant.png";
+	std::string sweeptyrant = Tyrant + "sweeptyrant.png";
+	std::string tyrant = Tyrant + "tyrant.png";
 	//Icefire 
 	std::string Icefire = General + "Icefire/";
 	std::string apricot = Icefire+"apricot.png";
@@ -381,6 +399,17 @@ public:
 	std::string team3 = Abyss + "team3.png";
 	std::string tokenshop = Abyss + "tokenshop.png";
 	std::string victoryabyss = Abyss + "victoryabyss.png";
+	std::string zero= Abyss + "zero.png";
+	std::string one= Abyss + "one.png";
+	std::string two= Abyss + "two.png";
+	std::string three= Abyss + "three.png";
+	std::string four= Abyss + "four.png";
+	std::string five= Abyss + "five.png";
+	std::string six= Abyss + "six.png";
+	std::string seven= Abyss + "seven.png";
+	std::string eight= Abyss + "eight.png";
+	std::string nine= Abyss + "nine.png";
+	std::string BN= Abyss + "BN.png";
 	
 	//Shop
 	std::string Shop = General + "Shop/";
@@ -400,15 +429,17 @@ public:
 	
 	std::vector<std::string>Focus;
 	std::string backg = "./img/screenshot.png";
-	std::string imgevents = "./img/screenshotEvents.png"
+	std::string imgevents = "./img/screenshotEvents.png";
+	std::string imgbusy = "./img/screenshotBusy.png";
 		;
 private:
 	std::string currentfocus;
 	std::vector<Coords>listcoords;
-	int dimX,dimY,eventx,eventy;
-	Coords C;
+	int dimX,dimY;
+	Coords C,Cevent,Cbusy;
 	fopencv op;
 	fadb adb;
 	ocr api;
+	sysCommands sys;
 };
 #endif
