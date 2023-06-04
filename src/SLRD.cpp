@@ -1,22 +1,112 @@
 #include "SLRD.h"
 
+SLRD::SLRD() {
+    C.x = C.y = Cevent.y = Cevent.x = Cbusy.x = Cbusy.y = 0;
+    MAIL = FRIENDS = HELL = ICEFIRE = BAG = HERB = RACE = THEATER = MYSTERY = XIAOWU = TRIAL = TASKS = TREANT = ABYSS = ENERGY = PAGODA = TYRANT = ELEMENT = TOURNAMENT = false;
+    dimX = 0;
+    dimY = 0;
+    endmacro = false;
+    restartMacro = true;
+    waitMacro = false;
+
+}
+
 SLRD::SLRD(int SizeX,int SizeY) {
     C.x = C.y =Cevent.y=Cevent.x=Cbusy.x=Cbusy.y=0;
     MAIL = FRIENDS = HELL= ICEFIRE= BAG= HERB= RACE= THEATER= MYSTERY= XIAOWU= TRIAL = TASKS= TREANT= ABYSS= ENERGY = PAGODA = TYRANT= ELEMENT= TOURNAMENT = false;
-    MAIL = FRIENDS = HELL = ICEFIRE = BAG = HERB = RACE = THEATER = MYSTERY = XIAOWU = TASKS = TREANT = ELEMENT =true;
     dimX = SizeX;
     dimY = SizeY;
     endmacro = false;
     restartMacro=true;
     waitMacro=false;
-    previousobject = croixmenu;
-    setOrder();
 }
 void SLRD::setOrder() {
     for (int i = 0; i < 20; i++) {
         Order[i] = i;
     }
 }
+
+
+void SLRD::selectActivity() {
+    string choix;
+    bool leave = false;
+    cout << "Type which activity you wanna do:" << endl;
+    cout << "ALL : 0"<<endl;
+    cout << " MAIL:A ; FRIENDS:B ; HELL:C ; ICEFIRE:D ; BAG:E ; HERB:F ; RACE:G ; THEATER:H ; MYSTERY:I ; XIAOWU:J  ; TASKS:K ; TREANT:L ; TYRANT:M ; ELEMENT:N"<<endl;
+    cout << "for example: abjdlm or ABJghDd or 0"<<endl;
+    cin >> choix;
+    for (int i = 0; i < choix.size() && leave == false; i++) {
+        switch (tolower(choix[i])) {
+        case 'a':
+            MAIL = true;
+            cout << "MAIL, ";
+            break;
+        case 'b':
+            FRIENDS = true;
+            cout << "FRIENDS, ";
+            break;
+        case 'c':
+            HELL = true;
+            cout << "HELL, ";
+            break;
+        case 'd':
+            ICEFIRE = true;
+            cout << "ICEFIRE, ";
+            break;
+        case 'e':
+            BAG = true;
+            cout << "BAG, ";
+            break;
+        case 'f':
+            HERB = true;
+            cout << "HERB, ";
+            break;
+        case 'g':
+            RACE = true;
+            cout << "RACE, ";
+            break;
+        case 'h':
+            THEATER = true;
+            cout << "THEATER, ";
+            break;
+        case 'i':
+            MYSTERY = true;
+            cout << "MYSTERY, ";
+            break;
+        case 'j':
+            XIAOWU = true;
+            cout << "XIAOWU, ";
+            break;
+        case 'k':
+            TASKS = true;
+            cout << "TASKS, ";
+            break;
+        case 'l':
+            TREANT = true;
+            cout << "TREANT, ";
+            break;
+        case 'm':
+            TYRANT = true;
+            cout << "TYRANT, ";
+            break;
+        case 'n':
+            ELEMENT = true;
+            cout << "ELEMENT, ";
+            break;
+        case '0':
+            MAIL = FRIENDS = HELL = ICEFIRE = BAG = HERB = RACE = THEATER = MYSTERY = XIAOWU = TASKS = TREANT = TYRANT = ELEMENT = true;
+            cout << "MAIL, FRIENDS, HELL, ICEFIRE, BAG, HERB, RACE, THEATER, MYSTERY, XIAOWU, TASKS, TREANT, TYRANT, ELEMENT ";
+            leave = true;
+            break;
+        }
+    
+    }
+    cout << " will be done.";
+
+}
+
+
+
 bool SLRD::macroEnd() {
     if (FRIENDS == false && MAIL == false && HELL == false && ICEFIRE == false && DISPATCH == false && TOURNAMENT == false && BAG == false && HERB == false && RACE == false && THEATER == false && MYSTERY == false && PAGODA == false && XIAOWU == false && ENERGY == false && TASKS == false && ABYSS == false && TYRANT == false && ELEMENT == false && TREANT == false) {
         endmacro = true;
@@ -183,7 +273,7 @@ void SLRD::startSLRD() {
 void SLRD::goHome() {
     try {
         while (findclick(back));
-        for (int i = 0; i < 5; i++) {
+        while (!find(pass)) {
             adb.touch(dimX * 0.96, dimY * 0.15);
             adb.wait(200);
         }
@@ -202,10 +292,9 @@ void SLRD::doMystery() {
             while (!findclick(watchadmystery));
             while (findclick(watchadmystery));
             while (!find(adwatched));
-            adb.wait(1000);
-            //while (!findclick(crossad)) {
-            //    if (!findclick(crossad2))break;
-            //}
+            while (!sys.StringInLogcat("ads_play_complete")) {
+                rebootCount++;
+            }
             adb.back();
             while (!findclick(congrats));
             while (findclick(congrats));
@@ -481,7 +570,9 @@ void SLRD::doTheater() {
         for (int i = 0; i < 10; i++) {
             while (!findclick(watchtheater));
             while (findclick(watchtheater));
-            while (!sys.StringInLogcat("ads_play_complete"));
+            while (!sys.StringInLogcat("ads_play_complete")) {
+                rebootCount++;
+            }
             adb.back();
             adb.wait(2000);
         }
@@ -674,25 +765,41 @@ void SLRD::getBag() {
     try {
         goHome();
         int nbdiamondbag = 0;
+        int nbsectbag = 0;
+        bool sectbagpresent, diamondbagpresent, eventbagpresent;
+        sectbagpresent = diamondbagpresent = eventbagpresent = true;
         while (!findclick(sect)) {
             swipemiddlemenu();
         }
+        adb.wait(4000);
         while (findclick(sect));
         while (!findclick(luckybagicon));
         while (findclick(luckybagicon));
         adb.wait(2000);
-        while (findclick(diamondbag)&&nbdiamondbag<8) {
-            nbdiamondbag++;
-            adb.wait(2000);
-            findclick(confirmbag);
-            adb.wait(2000);
-            while (findclick(sectbag)) {
-                adb.wait(2000);
-                findclick(confirmbag);
-                adb.wait(2000);
+
+        while (sectbagpresent || diamondbagpresent) {
+            while (nbdiamondbag < 8 && findclick(diamondbag)) {
+                nbdiamondbag++;
+                while(!findclick(confirmbag));
+                while(findclick(confirmbag));
             }
+            diamondbagpresent = false;
+            while (nbsectbag < 16 && findclick(sectbag)) {
+                nbsectbag++;
+                while (!findclick(confirmbag));
+                while (findclick(confirmbag));
+            }
+            sectbagpresent = false;
+            //while (findclick(eventbag)) {
+            //    while (!findclick(confirmbag));
+            //    while (findclick(confirmbag));
+            //}
+            //eventbagpresent = false;
+            if (find(diamondbag))diamondbagpresent = true;
+            if (find(sectbag))sectbagpresent = true;
         }
         while (!findclick(croixmenu));
+        while (findclick(croixmenu));
         BAG = false;
         goHome();
     }
@@ -707,7 +814,9 @@ void SLRD::doTournament() {
         while (!findclick(sect)) {
             swipemiddlemenu();
         }
+        adb.wait(4000);
         while (findclick(sect));
+
         while (!findclick(tournament));
         while (findclick(tournament));
         //add claim rewards
@@ -742,6 +851,7 @@ void SLRD::doTyrant() {
         while (!findclick(sect)) {
             swipemiddlemenu();
         }
+        adb.wait(4000);
         while (findclick(sect));
         while (!findclick(tyrant)) {
             adb.swipe(9 * dimX / 10, dimY / 2, dimX / 10, dimY / 2, 1000);
@@ -762,17 +872,17 @@ void SLRD::doTyrant() {
             while (!findclick(fighttyrant));
             while (findclick(fighttyrant));
             while (!findclick(sweeptyrant));
-            while (!findclick(confirmxiao));
-            while (findclick(confirmxiao));
+            while (!findclick(confirmpot));
+            while (findclick(confirmpot));
         }
         else {
+            //while (!findclick(sweeptyrant));
+            //while (!findclick(confirmpot));
+            //while (findclick(confirmpot));
+            //while (findclick(fighttyrant));
             while (!findclick(sweeptyrant));
-            while (!findclick(confirmxiao));
-            while (findclick(confirmxiao));
-            while (findclick(fighttyrant));
-            while (!findclick(sweeptyrant));
-            while (!findclick(confirmxiao));
-            while (findclick(confirmxiao));
+            while (!findclick(confirmpot));
+            while (findclick(confirmpot));
         }
         while (!findclick(pointstyrant));
         while (findclick(pointstyrant));
@@ -852,11 +962,21 @@ int SLRD::getRebootCount() {
     return rebootCount;
 }
 
-
+void SLRD::setDimX(int x) {
+    dimX = x;
+}
+void SLRD::setDimY(int y) {
+    dimY = y;
+}
 bool SLRD::findclick(std::string imgtemplate) { 
+    if (rebootCount >= 50) {
+        std::cout << "Relance du jeu\n" << endl;
+        restartMacro = true;
+    }
     while (waitMacro) {
         std::this_thread::sleep_for(std::chrono::seconds(5));
     }
+
     adb.screenshot();
     if (op.findImage(imgtemplate,backg, C.x, C.y)) {
         rebootCount = 0;
@@ -967,6 +1087,7 @@ bool SLRD::findclickBusy(std::string imgtemplate) {
     }
     else return false;
 }
+
 bool SLRD::clicktext(std::string targetword) {
     while (waitMacro) {
         std::this_thread::sleep_for(std::chrono::seconds(5));
@@ -989,6 +1110,10 @@ bool SLRD::clicktext(std::string targetword) {
     }
 }
 bool SLRD::find(std::string imgtemplate) {
+    if (rebootCount >= 50) {
+        std::cout << "Relance du jeu\n" << endl;
+        restartMacro = true;
+    }
     while (waitMacro) {
         std::this_thread::sleep_for(std::chrono::seconds(5));
     }

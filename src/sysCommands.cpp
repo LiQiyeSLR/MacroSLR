@@ -37,7 +37,6 @@ void sysCommands::launchBluestacksInstance(const std::string& programPath, const
 void sysCommands::shutdownEmulator(const string& appname) {
     string command = "taskkill /IM " + appname + " /T /F > nul 2>&1";
     std::system(command.c_str());
-    std::this_thread::sleep_for(std::chrono::seconds(1));
 }
 
 bool sysCommands::IsBlueStacksRunning() {
@@ -184,19 +183,6 @@ std::string sysCommands::getParentDirectory() {
 
 std::string sysCommands::searchHDPlayerExecutable() {
     std::string path;
-    string repertory = disk + ":\\Program Files\\BlueStacks_nxt";
-
-    if (_chdir(repertory.c_str()) == 0) {
-        if (system("dir /B HD-Player.exe > nul 2>&1") == 0) {
-            path = disk + ":\\Program Files\\BlueStacks_nxt";
-        }
-    }
-    repertory = disk + ":\\Program Files(x86)\\BlueStacks_nxt";
-    if (path.empty() && _chdir(repertory.c_str()) == 0) {
-        if (system("dir /B HD-Player.exe > nul 2>&1") == 0) {
-            path = disk + ":\\Program Files(x86)\\BlueStacks_nxt";
-        }
-    }
 
     if (path.empty()) {
         FILE* pipe = _popen("where /R \\ HD-Player.exe", "r");
@@ -217,13 +203,41 @@ std::string sysCommands::searchHDPlayerExecutable() {
     return path;
 }
 
+std::string sysCommands::searchfile(const std::string& file) {
+    std::string path;
+
+    // Search for the file using the "where" command
+    std::string command = "where /R \\ " + file;
+    FILE* pipe = _popen(command.c_str(), "r");
+    if (pipe) {
+        char buffer[256];
+        while (fgets(buffer, sizeof(buffer), pipe) != nullptr) {
+            std::string tempPath = buffer;
+            tempPath.erase(tempPath.find_last_not_of("\r\n") + 1);
+
+            // Extract the folder path from the full file path
+            std::filesystem::path fullPath(tempPath);
+            std::filesystem::path folderPath = fullPath.parent_path();
+
+            std::cout << "System-wide search result: " << folderPath.string() << std::endl;
+            system("taskkill /F /IM where.exe");
+            path = folderPath.string();
+            break;
+        }
+        _pclose(pipe);
+    }
+
+    return path;
+}
+
 std::string sysCommands::getNameFolder(const std::string& fileName) {
-    std::string searchPath = disk+":\\ProgramData\\BlueStacks_nxt\\Engine";
+    std::string searchPath = searchfile("grm_metadata.json");
 
     std::filesystem::path filePath(searchPath);
     for (const auto& entry : std::filesystem::recursive_directory_iterator(filePath)) {
         if (entry.is_regular_file() && entry.path().filename() == fileName) {
             std::filesystem::path parentPath = entry.path().parent_path();
+            cout << parentPath.parent_path().filename().string();
             return parentPath.parent_path().filename().string();
         }
     }
@@ -244,3 +258,5 @@ std::string sysCommands::readDiskLetter() {
     std::cout << "Disk letter: " << diskLetter << std::endl;
     return diskLetter;
 }
+
+

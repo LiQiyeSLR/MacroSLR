@@ -26,6 +26,7 @@ enum pos {haut,bas,gauche,droite};
 class SLRD
 {
 public:
+	SLRD();
 	SLRD(int dimX,int dimY);
 	void startSLRD();
 	//Activités
@@ -65,11 +66,14 @@ public:
 	void macroLoop();
 	bool macroEnd();
 	int getDay();
+	void selectActivity();
 	bool stringLogcat(const std::string& searchString);
 	void recursiveSearch(const std::filesystem::path& dirPath, std::vector<std::string>& Focus);
 	int getCx()const;
 	int getCy()const;
 	int getEventx()const;
+	void setDimX(int dimx);
+	void setDimY(int dimY);
 	void setOrder();
 	int getEventy()const;
 	int getRebootCount();
@@ -165,6 +169,7 @@ public:
 	std::string luckybagicon = Bag + "luckybagicon.png";
 	std::string confirmbag = Bag + "confirmbag.png";
 	std::string sectbag = Bag + "sectbag.png";
+	std::string eventbag = Bag + "eventbag.png";
 	
 	//Dispatch
 	std::string Dispatch = General + "Sect/Dispatch/";

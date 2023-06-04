@@ -13,7 +13,10 @@
 #include "../MSVC/14.35.32215/include/stdexcept"
 #include "../MSVC/14.35.32215/include/cstdio"
 #include "../MSVC/14.35.32215/include/cstdlib"
-#include <direct.h>
+#include "../Windows Kits/10/Include/10.0.22000.0/um/Windows.h"
+#include "../Windows Kits/10/Include/10.0.22000.0/um/TlHelp32.h"
+#include "../Windows Kits/10/Include/10.0.22000.0/ucrt/direct.h"
+
 
 
 
@@ -37,6 +40,7 @@ public:
 	vector<string> GetLogcatOutput(const std::string& searchString);
 	void printFilteredLogs(const std::string& filter);
 	void time();
+	std::string searchfile(const string&file);
 	std::string searchHDPlayerExecutable();
 	std::string getParentDirectory();
 	std::string getNameFolder(const std::string& fileName);
