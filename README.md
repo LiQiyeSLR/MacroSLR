@@ -1,13 +1,9 @@
 # MacroSLR
 Works and tested only on Windows 10.
 To make it work use Bluestacks 5.
-Make sure SLR is installed on main bluestacks instance
-check if HD-Player.exe is in this folder:
-C:/Program Files/BlueStacks_nxt/
-if not change the folder in src/main.cpp and rebuild project
-copy executable in x64\Release and put it in parent folder.
-USE GIT CLONE https to import project not zip. 
-add platform-tools(only the folder) absolute path to windows PATH (environment variables)
+In diskletter.txt add the disk letter in maj containing bluestacks (C by default) will be automatic later.
+add platform-tools folder path to the environnement variables of windows (type PATH) and add it to system Path
+USE GIT CLONE https to import project not zip as it won't import the dll over 100 MB. 
 to use git commands install cmder (full edition)
 
 BLUESTACKS CONFIG:
